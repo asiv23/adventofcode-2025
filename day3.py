@@ -1,3 +1,6 @@
+from aocd import get_data
+data = get_data(day=3, year=2025)
+
 def findMaxComb(n):
 	jolt = 0
 	i = 0
@@ -14,9 +17,10 @@ def findMaxComb(n):
 			i = i + 1
 	return jolt
 		
-
-with open("./input_files/day3-input.txt") as batteries:
-	sum = 0
-	for bank in batteries:
-	    sum = sum + (findMaxComb(bank))
+batteries = data.split('\n')
+# with open("./input_files/day3-input.txt") as batteries:
+sum = 0
+for bank in batteries:
+    sum = sum + (findMaxComb(bank))
+	
 print(sum)

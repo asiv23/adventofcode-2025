@@ -1,8 +1,32 @@
+from aocd import get_data
+data = get_data(day=8, year=2025)
+
+testData = '''162,817,812
+57,618,57
+906,360,560
+592,479,940
+352,342,300
+466,668,158
+542,29,236
+431,825,988
+739,650,466
+52,470,668
+216,146,977
+819,987,18
+117,168,530
+805,96,715
+346,949,466
+970,615,88
+941,993,340
+862,61,35
+984,92,344
+425,690,689'''
+
 def dist(n, m):
 	return(((n[0] - m[0]) ** 2 + (n[1] - m[1]) ** 2 + (n[2] - m[2]) ** 2) ** 0.5)
 
-with open("./input_files/day8-input.txt") as file:
-	boxes = [[int(i) for i in x.split(",")] for x in file.read().splitlines()]
+# boxes = [[int(i) for i in x.split(",")] for x in data.split('\n')]
+boxes = [[int(i) for i in x.split(",")] for x in testData.split('\n')]
 
 distances = []
 for i in range(0, len(boxes)):

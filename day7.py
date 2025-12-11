@@ -1,4 +1,6 @@
 import re
+from aocd import get_data
+data = get_data(day=7, year=2025)
 
 def part1():
 	splitCount = 0
@@ -14,7 +16,5 @@ def part1():
 				grid[i] = grid[i][:index] + '|' + grid[i][index+1:]		
 	print(splitCount)
 
-with open("./input_files/day7-input.txt") as file:
-	grid = file.read().splitlines()
-
-# [print(x) for x in grid] 
+grid = data.split('\n')
+part1()

@@ -1,6 +1,8 @@
-sumInvalid = 0
-
 import re
+from aocd import get_data
+data = get_data(day=2, year=2025)
+
+sumInvalid = 0
 
 def isValid(n):
 	n = str(n)
@@ -9,14 +11,12 @@ def isValid(n):
 		return False
 	return True
 
-with open("./input_files/day2-input.txt") as file:
-	idRanges = file.readline()
-	idRanges = idRanges.split(',')
-	
-	for i in idRanges:
-		i = i.split('-')
-		for j in range(int(i[0]), int(i[1])+1):
-			if re.fullmatch(r"(.+)\1+", str(j)):
-				sumInvalid = sumInvalid + j
+idRanges = data.split(',')
+# [print(x) for x in idRanges]
+for i in idRanges:
+	i = i.split('-')
+	for j in range(int(i[0]), int(i[1])+1):
+		if re.fullmatch(r"(.+)\1+", str(j)):
+			sumInvalid = sumInvalid + j
 
 print("sum: ", sumInvalid)

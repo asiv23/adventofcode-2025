@@ -1,5 +1,5 @@
-with open("./input_files/day4-input.txt") as file:
-    grid = [line for line in file]
+from aocd import get_data
+data = get_data(day=4, year=2025)
     
 directions = [
 	[0, 1],
@@ -15,6 +15,7 @@ directions = [
 accessable = 0
 removable = True
 
+grid = [line for line in data.split('\n')] 
 while removable == True:
 	removable = False
 	for i in range(0, len(grid)):
@@ -28,6 +29,6 @@ while removable == True:
 					grid[i] = grid[i][:j] + 'x' + grid[i][j+1:]
 					accessable = accessable + 1
 					removable = True
-		print('\n')
+		# print('\n')
 
 print(accessable)

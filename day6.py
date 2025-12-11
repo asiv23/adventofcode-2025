@@ -1,4 +1,6 @@
 import math
+from aocd import get_data
+data = get_data(day=6, year=2025)
 
 def part1(worksheet):
 	# worksheet = [x.split() for x in worksheet]
@@ -16,10 +18,7 @@ def part1(worksheet):
 				total += math.prod([j[i] for j in worksheet[:-1]])	
 	print(total)
 
-with open("./input_files/day6-input.txt") as file:
-	worksheet = file.read().splitlines()
-# part1(worksheet)
-
+worksheet = data.split('\n')
 rotatedWorksheet = []
 temp = []
 for i in range(0, len(worksheet[1])):

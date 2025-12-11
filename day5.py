@@ -1,3 +1,6 @@
+from aocd import get_data
+data = get_data(day=5, year=2025)
+
 def part1():
 	freshCount = 0
 	for i in ingredients:
@@ -10,10 +13,10 @@ def inRange(i):
 		if r[0] < i <= r[1]:
 			return True	
 
-with open("./input_files/day5-input.txt") as file:
-	data = [x.strip() for x in file.read().split('\n\n')]
-	freshRanges = [[int(x.split('-')[0]), int(x.split('-')[1])] for x in data[0].splitlines()]
-	ingredients = [int(x) for x in data[1].splitlines()]
+# with open("./input_files/day5-input.txt") as file:
+data = [x.strip() for x in data.split('\n\n')]
+freshRanges = [[int(x.split('-')[0]), int(x.split('-')[1])] for x in data[0].splitlines()]
+ingredients = [int(x) for x in data[1].splitlines()]
 
 freshRanges.sort(key=lambda x: x[0])
 newRanges = [[freshRanges[0][0], freshRanges[0][1]]]
@@ -25,7 +28,7 @@ for i in range(1, len(freshRanges)):
 			overlap = True
 	if overlap == False:
 		newRanges.append(freshRanges[i])
-print(newRanges)
+# print(newRanges)
 
 count = 0 
 for i in newRanges:
