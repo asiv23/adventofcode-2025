@@ -73,7 +73,6 @@ for i in range(1, len(distances)):
 	found = False
 	for j in range(0, len(graph)):
 		if len(graph[j].intersection(distances[i])) > 0:
-		# if distances[i][1] in graph[j] or distances[i][2] in graph[j]:
 			graph[j].add(distances[i][1])
 			graph[j].add(distances[i][2])
 			found = True
